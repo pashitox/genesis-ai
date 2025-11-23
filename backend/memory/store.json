@@ -348,6 +348,355 @@
       },
       "improver": "\u26a1 **FastAPI para principiantes:**\n\n1. **Instalaci\u00f3n:** `pip install fastapi uvicorn`\n2. **Primer API:** Crea app con `@app.get('/')`\n3. **Caracter\u00edsticas:** Tipado con Pydantic, documentaci\u00f3n autom\u00e1tica\n4. **Ejecuci\u00f3n:** `uvicorn main:app --reload`\n\nFastAPI es r\u00e1pido y tiene documentaci\u00f3n interactiva en /docs.",
       "rag_context": "\ud83d\udcda **Informaci\u00f3n t\u00e9cnica relevante:**\n\n1. FastAPI es un framework web moderno para Python. Instalaci\u00f3n: pip install fastapi uvicorn. Ejemplo b\u00e1sico: from fastapi import FastAPI; app = FastAPI(); @app.get('/') def root(): return {'message': 'Hello World'}. Documentaci\u00f3n autom\u00e1tica en /docs y /redoc.\n   (Similitud: 0.45)\n\n"
+    },
+    {
+      "timestamp": "2025-11-23T22:24:20.152352Z",
+      "request_id": "9f184ad3-1c37-4d87-bcc5-0addc81943f4",
+      "user_message": "Qu\u00e9 es Docker?",
+      "reasoner": {
+        "request_id": "299d96da-ab6f-4de8-99d8-c013f05132fe",
+        "text": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+        "rag_context": {
+          "query": "Qu\u00e9 es Docker?",
+          "results": [
+            {
+              "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+              "category": "docker",
+              "similarity": 0.4501881003379822,
+              "tags": [
+                "containers",
+                "deployment",
+                "devops"
+              ]
+            },
+            {
+              "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+              "category": "kubernetes",
+              "similarity": 0.37043115496635437,
+              "tags": [
+                "orchestration",
+                "containers",
+                "devops"
+              ]
+            }
+          ],
+          "max_similarity": 0.4501881003379822,
+          "results_count": 2
+        }
+      },
+      "critic": {
+        "score": 0.9,
+        "issues": [],
+        "advice": "Excelente respuesta, bien estructurada y completa."
+      },
+      "improver": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+      "rag_context": {
+        "query": "Qu\u00e9 es Docker?",
+        "results": [
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.4501881003379822,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          },
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.37043115496635437,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.4501881003379822,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:24:33.158010Z",
+      "request_id": "3666075b-ef29-423d-a5f5-f8d42dccc21e",
+      "user_message": "Qu\u00e9 es Docker?",
+      "reasoner": {
+        "request_id": "eae23cf3-a28f-4672-b4c3-da3afd4fefb2",
+        "text": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+        "rag_context": {
+          "query": "Qu\u00e9 es Docker?",
+          "results": [
+            {
+              "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+              "category": "docker",
+              "similarity": 0.4501881003379822,
+              "tags": [
+                "containers",
+                "deployment",
+                "devops"
+              ]
+            },
+            {
+              "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+              "category": "kubernetes",
+              "similarity": 0.37043115496635437,
+              "tags": [
+                "orchestration",
+                "containers",
+                "devops"
+              ]
+            }
+          ],
+          "max_similarity": 0.4501881003379822,
+          "results_count": 2
+        }
+      },
+      "critic": {
+        "score": 0.9,
+        "issues": [],
+        "advice": "Excelente respuesta, bien estructurada y completa."
+      },
+      "improver": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+      "rag_context": {
+        "query": "Qu\u00e9 es Docker?",
+        "results": [
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.4501881003379822,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          },
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.37043115496635437,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.4501881003379822,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:31:20.090269Z",
+      "request_id": "d156821a-d49a-4073-aee3-dcae1f662ea4",
+      "user_message": "Qu\u00e9 es Docker?",
+      "reasoner": {
+        "request_id": "9c9a407a-52a8-464a-a6f3-c6119e1abcc9",
+        "text": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+        "rag_context": "\ud83d\udcda Informaci\u00f3n relevante encontrada:\n\n- Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images (Similitud: 0.45)\n\n- Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local. (Similitud: 0.37)\n\n"
+      },
+      "critic": {
+        "score": 0.8,
+        "issues": [
+          "no aborda completamente la pregunta"
+        ],
+        "advice": "Mejora el enfoque en los puntos clave de la pregunta."
+      },
+      "improver": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+      "rag_context": {
+        "query": "Qu\u00e9 es Docker?",
+        "results": [
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.4501881003379822,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          },
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.37043115496635437,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.4501881003379822,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:32:51.737439Z",
+      "request_id": "bb72df67-f991-4150-8a3e-345ed07f2b46",
+      "user_message": "Qu\u00e9 es Docker?",
+      "reasoner": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+      "critic": {
+        "score": 0.8,
+        "issues": [
+          "no aborda completamente la pregunta"
+        ],
+        "advice": "Mejora el enfoque en los puntos clave de la pregunta."
+      },
+      "improver": "\ud83d\udc33 **Docker desde cero:**\n\n1. **Instalar Docker** en tu sistema\n2. **Dockerfile:** Define tu aplicaci\u00f3n\n3. **Comandos:** `docker build -t myapp .`, `docker run -p 8000:8000 myapp`\n4. **Docker Compose** para m\u00faltiples servicios\n\nComienza con contenedores simples y luego redes.",
+      "rag_context": {
+        "query": "Qu\u00e9 es Docker?",
+        "results": [
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.4501881003379822,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          },
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.37043115496635437,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.4501881003379822,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:35:01.170993Z",
+      "request_id": "f11458ca-55e4-40ad-b835-34357bc14d4e",
+      "user_message": "Expl\u00edcame la diferencia entre Docker y Kubernetes",
+      "reasoner": "\ud83d\ude80 **Para aprender Kubernetes desde cero:**\n\n1. **Conceptos b\u00e1sicos:** Comprende Pods, Deployments, Services\n2. **Instalaci\u00f3n:** Usa minikube para entorno local\n3. **Pr\u00e1ctica:** Ejecuta `kubectl get pods`, `kubectl apply -f deployment.yaml`\n4. **Recursos:** Kubernetes.io documentation y Katacoda labs\n\nRecomiendo empezar con minikube y practicar con ejemplos simples.",
+      "critic": {
+        "score": 0.75,
+        "issues": [
+          "respuesta podr\u00eda ser m\u00e1s concisa",
+          "no aborda completamente la pregunta"
+        ],
+        "advice": "Mejora el enfoque en los puntos clave de la pregunta."
+      },
+      "improver": "\ud83d\ude80 **Para aprender Kubernetes desde cero:**\n\n1. **Conceptos b\u00e1sicos:** Comprende Pods, Deployments, Services\n2. **Instalaci\u00f3n:** Usa minikube para entorno local\n3. **Pr\u00e1ctica:** Ejecuta `kubectl get pods`, `kubectl apply -f deployment.yaml`\n4. **Recursos:** Kubernetes.io documentation y Katacoda labs\n\nRecomiendo empezar con minikube y practicar con ejemplos simples.",
+      "rag_context": {
+        "query": "Expl\u00edcame la diferencia entre Docker y Kubernetes",
+        "results": [
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.6500610709190369,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          },
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.4489991068840027,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.6500610709190369,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:35:12.742505Z",
+      "request_id": "07ec0db0-49ee-4193-a5a9-634d43dd6150",
+      "user_message": "C\u00f3mo implementar CI/CD usando Docker y Kubernetes?",
+      "reasoner": "\ud83d\ude80 **Para aprender Kubernetes desde cero:**\n\n1. **Conceptos b\u00e1sicos:** Comprende Pods, Deployments, Services\n2. **Instalaci\u00f3n:** Usa minikube para entorno local\n3. **Pr\u00e1ctica:** Ejecuta `kubectl get pods`, `kubectl apply -f deployment.yaml`\n4. **Recursos:** Kubernetes.io documentation y Katacoda labs\n\nRecomiendo empezar con minikube y practicar con ejemplos simples.",
+      "critic": {
+        "score": 0.75,
+        "issues": [
+          "respuesta podr\u00eda ser m\u00e1s concisa",
+          "no aborda completamente la pregunta"
+        ],
+        "advice": "Mejora el enfoque en los puntos clave de la pregunta."
+      },
+      "improver": "\ud83d\ude80 **Para aprender Kubernetes desde cero:**\n\n1. **Conceptos b\u00e1sicos:** Comprende Pods, Deployments, Services\n2. **Instalaci\u00f3n:** Usa minikube para entorno local\n3. **Pr\u00e1ctica:** Ejecuta `kubectl get pods`, `kubectl apply -f deployment.yaml`\n4. **Recursos:** Kubernetes.io documentation y Katacoda labs\n\nRecomiendo empezar con minikube y practicar con ejemplos simples.",
+      "rag_context": {
+        "query": "C\u00f3mo implementar CI/CD usando Docker y Kubernetes?",
+        "results": [
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.6356171369552612,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          },
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.36215415596961975,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.6356171369552612,
+        "results_count": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-23T22:35:27.489050Z",
+      "request_id": "6897fa49-bdd5-4421-bc2d-83c3c4324a2d",
+      "user_message": "Que es Dockr y como se usa Kubrnates?",
+      "reasoner": "\ud83e\udd14 **Sobre tu pregunta:** 'Que es Dockr y como se usa Kubrnates?'\n\nTe recomiendo:\n1. Documentaci\u00f3n oficial del tema\n2. Tutoriales pr\u00e1cticos paso a paso\n3. Proyectos hands-on para aprender haciendo\n4. Comunidades como Stack Overflow para dudas espec\u00edficas\n\n\u00bfQuieres que profundice en alg\u00fan aspecto en particular?",
+      "critic": {
+        "score": 0.7,
+        "issues": [
+          "respuesta podr\u00eda ser m\u00e1s concisa"
+        ],
+        "advice": "Mejora el enfoque en los puntos clave de la pregunta."
+      },
+      "improver": "\ud83e\udd14 **Sobre tu pregunta:** 'Pregunta original: Que es Dockr y como se usa Kubrnates?\n\nRespuesta inicial: \ud83e\udd14 **Sobre tu pregunta:** 'Que es Dockr y como se usa Kubrnates?'\n\nTe recomiendo:\n1. Documentaci\u00f3n oficial del tema\n2. Tutoriales pr\u00e1cticos paso a paso\n3. Proyectos hands-on para aprender haciendo\n4. Comunidades como Stack Overflow para dudas espec\u00edficas\n\n\u00bfQuieres que profundice en alg\u00fan aspecto en particular?\n\nPuntuaci\u00f3n recibida: 0.7/1.0\nProblemas identificados: ['respuesta podr\u00eda ser m\u00e1s concisa']\n\nDevuelve una respuesta mejorada que solucione los problemas mencionados.'\n\nTe recomiendo:\n1. Documentaci\u00f3n oficial del tema\n2. Tutoriales pr\u00e1cticos paso a paso\n3. Proyectos hands-on para aprender haciendo\n4. Comunidades como Stack Overflow para dudas espec\u00edficas\n\n\u00bfQuieres que profundice en alg\u00fan aspecto en particular?",
+      "rag_context": {
+        "query": "Que es Dockr y como se usa Kubrnates?",
+        "results": [
+          {
+            "content": "Kubernetes gestiona contenedores. Conceptos: Pods (m\u00ednima unidad), Deployments (gesti\u00f3n estado), Services (red). Comandos: kubectl get pods, kubectl apply -f deployment.yaml, kubectl get services, minikube start para local.",
+            "category": "kubernetes",
+            "similarity": 0.5225738286972046,
+            "tags": [
+              "orchestration",
+              "containers",
+              "devops"
+            ]
+          },
+          {
+            "content": "Docker permite crear contenedores. Dockerfile b\u00e1sico: FROM python:3.9, WORKDIR /app, COPY . ., RUN pip install, CMD python app.py. Comandos: docker build -t myapp ., docker run -p 8000:8000 myapp, docker ps, docker images",
+            "category": "docker",
+            "similarity": 0.3103736340999603,
+            "tags": [
+              "containers",
+              "deployment",
+              "devops"
+            ]
+          }
+        ],
+        "max_similarity": 0.5225738286972046,
+        "results_count": 2
+      }
     }
   ]
 }

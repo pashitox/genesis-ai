@@ -401,5 +401,40 @@
     "request_id": "f6996f7a-7c32-43ec-ac07-72f4ef8b697b",
     "agent": "improver",
     "final_snapshot": "\u26a1 **FastAPI para principiantes:**\n\n1. **Instalaci\u00f3n:** `pip install fastapi uvicorn`\n2. **Primer API:** Crea app con `@app.get('/')`\n3. **Caracter\u00edsticas:** Tipado con Pydantic, documentaci\u00f3n autom\u00e1tica\n4. **Ejecuci\u00f3n:** `uvicorn main:app --reload`\n\nFastAPI es r\u00e1pido y tiene documentaci\u00f3n interactiva en /docs."
+  },
+  {
+    "timestamp": "2025-11-23T23:24:20.152874",
+    "request_id": "9f184ad3-1c37-4d87-bcc5-0addc81943f4",
+    "critic_score": 0.9
+  },
+  {
+    "timestamp": "2025-11-23T23:24:33.158918",
+    "request_id": "3666075b-ef29-423d-a5f5-f8d42dccc21e",
+    "critic_score": 0.9
+  },
+  {
+    "timestamp": "2025-11-23T23:31:20.090850",
+    "request_id": "d156821a-d49a-4073-aee3-dcae1f662ea4",
+    "critic_score": 0.8
+  },
+  {
+    "timestamp": "2025-11-23T23:32:51.738027",
+    "request_id": "bb72df67-f991-4150-8a3e-345ed07f2b46",
+    "critic_score": 0.8
+  },
+  {
+    "timestamp": "2025-11-23T23:35:01.171614",
+    "request_id": "f11458ca-55e4-40ad-b835-34357bc14d4e",
+    "critic_score": 0.75
+  },
+  {
+    "timestamp": "2025-11-23T23:35:12.743188",
+    "request_id": "07ec0db0-49ee-4193-a5a9-634d43dd6150",
+    "critic_score": 0.75
+  },
+  {
+    "timestamp": "2025-11-23T23:35:27.489687",
+    "request_id": "6897fa49-bdd5-4421-bc2d-83c3c4324a2d",
+    "critic_score": 0.7
   }
 ]

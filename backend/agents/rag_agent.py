@@ -52,28 +52,28 @@ class RAGAgent:
         try:
             query_embedding = self.model.encode([query])
             similarities = np.dot(self.embeddings, query_embedding.T).flatten()
-            
+        
             top_indices = np.argsort(similarities)[-top_k:][::-1]
-            
+        
             results = []
             for idx in top_indices:
-                if similarities[idx] > 0.3:  # Threshold mínimo
+                if similarities[idx] > 0.3:
                     results.append({
                         "content": self.knowledge_base[idx]["content"],
                         "category": self.knowledge_base[idx]["category"],
                         "similarity": float(similarities[idx]),
                         "tags": self.knowledge_base[idx]["tags"]
                     })
-            
+        
             max_similarity = max([r["similarity"] for r in results]) if results else 0
-            
+        
             return {
                 "query": query,
                 "results": results,
                 "max_similarity": max_similarity,
                 "results_count": len(results)
             }
-            
+        
         except Exception as e:
             return {
                 "query": query,
@@ -83,5 +83,19 @@ class RAGAgent:
                 "error": str(e)
             }
 
-# Instancia global
+# === Crear instancia global ===
 rag_agent = RAGAgent()
+
+# === FUNCIÓN COMPATIBLE CON REASONER ===
+async def get_rag_context(query: str) -> str:
+    results = rag_agent.search(query)
+
+    if results["results_count"] == 0:
+        return "No se encontró información relevante en la base de conocimiento."
+
+    final_text = "📚 Información relevante encontrada:\n\n"
+
+    for item in results["results"]:
+        final_text += f"- {item['content']} (Similitud: {item['similarity']:.2f})\n\n"
+
+    return final_text
