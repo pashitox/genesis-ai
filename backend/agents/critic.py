@@ -1,71 +1,91 @@
 from typing import Dict, Any
-from ..llm import call_openai_chat
 
 class CriticAgent:
-    async def critique(self, reasoner_text: str, user_message: str) -> Dict[str, Any]:
+    async def critique(self, reasoner_text: str, user_message: str, rag_context: Dict = None) -> Dict[str, Any]:
         """
-        Revisa la respuesta del reasoner y devuelve análisis mejorado
+        Revisa la respuesta del reasoner con análisis de relevancia mejorado
         """
         issues = []
-        score = 0.7  # Puntuación base
+        score = 0.7  # Puntuación base más alta
         
-        # 1. Análisis de longitud
-        if len(reasoner_text) < 100:
+        user_lower = user_message.lower()
+        response_lower = reasoner_text.lower()
+        
+        # 1. Análisis de preguntas sobre capacidades
+        capability_queries = ["hola", "ayuda", "quién eres", "qué puedes hacer"]
+        is_capability_query = any(query in user_lower for query in capability_queries)
+        
+        if is_capability_query:
+            # Para preguntas sobre capacidades, puntuar más alto si la respuesta es útil
+            if len(reasoner_text) > 50 and "👋" in reasoner_text:
+                score += 0.2
+            return {
+                "score": min(0.9, score),
+                "issues": [],
+                "advice": "Buena respuesta para pregunta sobre capacidades",
+                "context_match_ratio": 1.0
+            }
+        
+        # 2. Análisis de relevancia del RAG
+        if rag_context and not rag_context.get("is_relevant", False):
+            if "fuera de mi ámbito" in response_lower or "🔍" in reasoner_text:
+                score += 0.3  # Premiar reconocer límites
+                issues.append("reconoció límites correctamente")
+            else:
+                score -= 0.2
+                issues.append("no reconoció falta de relevancia")
+        
+        # 3. Análisis de longitud y calidad
+        if len(reasoner_text.strip()) < 30:
             issues.append("respuesta muy corta")
-            score -= 0.2
-        elif len(reasoner_text) > 300:
-            issues.append("respuesta podría ser más concisa")
-            score -= 0.1
-        else:
-            score += 0.1
+            score -= 0.3
+        elif len(reasoner_text) > 50 and len(reasoner_text) < 300:
+            score += 0.1  # Premiar respuestas de longitud adecuada
         
-        # 2. Análisis de contenido técnico
-        technical_terms = ["kubernetes", "fastapi", "docker", "python", "api", "deployment", "container"]
-        technical_count = sum(1 for term in technical_terms if term in reasoner_text.lower())
+        # 4. Análisis de contenido técnico
+        tech_keywords = ["docker", "kubernetes", "fastapi", "python", "api", "container"]
+        technical_count = sum(1 for term in tech_keywords if term in response_lower)
         
         if technical_count >= 2:
             score += 0.15
-        elif technical_count == 0 and any(term in user_message.lower() for term in technical_terms):
+        elif technical_count == 0 and any(term in user_lower for term in tech_keywords):
             issues.append("falta contenido técnico específico")
-            score -= 0.15
-        
-        # 3. Análisis de estructura
-        if "\n" in reasoner_text or "•" in reasoner_text or "1." in reasoner_text:
-            score += 0.1
-        else:
-            issues.append("podría mejorar la estructura con listas o puntos")
-        
-        # 4. Análisis de contexto
-        user_lower = user_message.lower()
-        response_lower = reasoner_text.lower()
-        context_matches = 0
-        important_words = [word for word in user_lower.split() if len(word) > 3]
-        for word in important_words:
-            if word in response_lower:
-                context_matches += 1
-        
-        if context_matches < len(important_words) / 2:
-            issues.append("no aborda completamente la pregunta")
             score -= 0.1
         
-        # Consejo específico basado en el análisis
-        advice = "Buena respuesta base."
-        if issues:
-            if "técnico" in str(issues):
-                advice = "Añade ejemplos técnicos específicos y comandos."
-            elif "estructura" in str(issues):
-                advice = "Organiza la respuesta con puntos o listas numeradas."
-            elif "corta" in str(issues):
-                advice = "Expande con más detalles y ejemplos prácticos."
-            else:
-                advice = "Mejora el enfoque en los puntos clave de la pregunta."
-        else:
-            advice = "Excelente respuesta, bien estructurada y completa."
+        # 5. Estructura y formato
+        if any(marker in reasoner_text for marker in ["**", "•", "🎯", "💡"]):
+            score += 0.1  # Premiar buen formato
         
-        score = max(0.3, min(0.95, round(score, 2)))
+        # 6. Coincidencia de contexto
+        important_words = [word for word in user_lower.split() if len(word) > 3]
+        context_matches = sum(1 for word in important_words if word in response_lower)
+        context_ratio = context_matches / len(important_words) if important_words else 0
+        
+        if context_ratio > 0.5:
+            score += 0.2
+        elif context_ratio < 0.2:
+            issues.append("baja coincidencia con la pregunta")
+            score -= 0.1
+        
+        # Ajustar score basado en similitud RAG
+        if rag_context and rag_context.get("max_similarity", 0) > 0.6:
+            score += 0.15
+        
+        # Consejo específico
+        advice = "Respuesta adecuada."
+        if score > 0.8:
+            advice = "Excelente respuesta, relevante y bien estructurada."
+        elif score < 0.5:
+            advice = "Podría mejorar la relevancia y especificidad."
+        
+        score = max(0.1, min(0.95, round(score, 2)))
         
         return {
             "score": score,
             "issues": issues,
-            "advice": advice
+            "advice": advice,
+            "context_match_ratio": round(context_ratio, 2)
         }
+
+# Instancia global
+critic_agent = CriticAgent()
