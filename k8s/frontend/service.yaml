@@ -1,0 +1,17 @@
+
+# k8s/frontend/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: genesis-frontend
+  namespace: genesis-ai
+  labels:
+    app: genesis-frontend
+spec:
+  selector:
+    app: genesis-frontend
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+  type: ClusterIP

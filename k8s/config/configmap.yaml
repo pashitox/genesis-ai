@@ -1,0 +1,11 @@
+# k8s/config/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: genesis-config
+  namespace: genesis-ai
+data:
+  environment: "production"
+  log-level: "INFO"
+  api-url: "http://genesis-backend:8002"
+---
