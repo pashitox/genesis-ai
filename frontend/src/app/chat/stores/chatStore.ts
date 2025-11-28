@@ -7,7 +7,7 @@ type Msg = {
   role: string
   text: string
   response?: any
-  error?: string
+  error?: boolean
 }
 
 type ChatState = {

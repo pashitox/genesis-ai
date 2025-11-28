@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    image: genesis-ai/backend:fixed
+    ports:
+      - "8002:8002"
+    environment:
+      - ENVIRONMENT=production
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8002/health', timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  frontend:
+    image: genesis-ai/frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8002
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

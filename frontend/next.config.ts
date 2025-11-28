@@ -1,8 +1,11 @@
+// frontend/next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
+  // Deshabilitar optimizaciones para desarrollo rápido
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
 }
 
-export default nextConfig
+module.exports = nextConfig

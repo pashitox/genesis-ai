@@ -1,28 +1,34 @@
 # frontend/Dockerfile
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS deps
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-RUN npm ci --only=production
+# Copy only package files for dependency installation
+COPY package.json package-lock.json* ./
 
-# Copy source code
+# Install dependencies only (no dev dependencies for production)
+RUN npm ci --only=production --prefer-offline --no-audit
+
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy dependencies from previous stage
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build application
+# Build with optimizations
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# Production stage
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Create non-root user
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# Copy built application
+# Copy necessary files only
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
@@ -30,8 +36,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 EXPOSE 3000
-
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+ENV NODE_ENV=production
 
 CMD ["node", "server.js"]

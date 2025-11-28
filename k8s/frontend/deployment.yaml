@@ -26,7 +26,7 @@ spec:
       containers:
       - name: frontend
         image: genesis-ai/frontend:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 3000
         env:

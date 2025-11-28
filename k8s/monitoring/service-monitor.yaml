@@ -1,0 +1,14 @@
+# k8s/monitoring/service-monitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: genesis-monitor
+  namespace: genesis-ai
+spec:
+  selector:
+    matchLabels:
+      app: genesis-backend
+  endpoints:
+  - port: 8002
+    path: /metrics
+    interval: 30s
