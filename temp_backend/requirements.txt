@@ -1,0 +1,25 @@
+# Versiones compatibles para sentence-transformers
+numpy==1.24.3
+scikit-learn==1.3.0
+faiss-cpu==1.7.4
+
+# Hugging Face - versiones compatibles
+transformers==4.35.2
+sentence-transformers==2.2.2
+huggingface-hub==0.19.4  # Versión compatible con cached_download
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+httpx==0.25.2
+
+# AI/ML
+openai==1.12.0
+
+# Utilities
+pydantic==2.5.0
+loguru==0.7.2
+python-dotenv==1.0.0
+requests==2.31.0
+torch==2.1.1
+tokenizers==0.15.1

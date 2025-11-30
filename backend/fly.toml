@@ -1,0 +1,38 @@
+app = "genesis-ai-backend"
+primary_region = "iad"
+
+[build]
+ 
+[env]
+  PORT = "8080"
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024
+
+# Volumen para modelos pesados (hasta 3GB gratis)
+[[mounts]]
+  source = "model_storage"
+  destination = "/app/models"
